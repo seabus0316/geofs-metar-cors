@@ -11,7 +11,7 @@ app.get("/metar", async (req, res) => {
     return res.status(400).json({ error: "Missing ICAO code" });
   }
 
-  const url = `https://metar.vatsim.net/${icao}`;
+  const url = `https://aviationweather.gov/api/data/metar?ids=${icao}&format=geojson`;
 
   try {
     const response = await fetch(url);
